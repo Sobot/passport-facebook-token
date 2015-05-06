@@ -63,7 +63,7 @@ function FacebookTokenStrategy(options, verify) {
  */
 FacebookTokenStrategy.prototype.authenticate = function(req, options) {
   var self = this;
-  accessToken = (req.body && req.body.access_token) || (req.query && req.query.access_token) || (req.headers && req.headers.access_token),
+  accessToken = (req.body && req.body.access_token && req.body.accessToken) || (req.query && req.query.access_token && req.query.accessToken) || (req.headers && req.headers.access_token && req.headers.accessToken),
   refreshToken = (req.body && req.body.refresh_token) || (req.query && req.query.refresh_token) || (req.headers && req.headers.refresh_token);
 
   if (!accessToken) {
